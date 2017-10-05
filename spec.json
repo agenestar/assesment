@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Backend  developer  assessment",
+    "contact": {
+      "email": "andreugenestar@outlook.com"
+    }
+  },
+  "host": "127.0.0.1:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "clients",
+      "description": "Clients routes"
+    },
+    {
+      "name": "polices",
+      "description": "Polices routes"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/user/{userIdOrUserName}": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Get user data filtered by user id or user name",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userIdOrUserName",
+            "description": "User name or user id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "No user found with the given id or user name"
+          }
+        }
+      }
+    },
+    "/user/{username}/policies": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Get user policies filtered by user name",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "description": "User name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "No user found with the given user name"
+          }
+        }
+      }
+    },
+    "/policy/{policyId}/user": {
+      "get": {
+        "tags": [
+          "polices"
+        ],
+        "summary": "Get user filtered by policy id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "policyId",
+            "description": "Policy id name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "No policy or user found with the given id"
+          }
+        }
+      }
+    }
+  }
+}
